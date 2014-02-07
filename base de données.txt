@@ -1,0 +1,8 @@
+Nom de la base : FreeBed
+
+Users (id,pseudo, nom, prenom, email, password, bailleur)
+biens(id, nom, type, surface,tarif,description)
+date_disponibilite(id, date_debut, date_fin)
+adresse(id, adresse, cp, ville, pays)
+images(id, nom, url)
+avis(id,commentaire,note)
