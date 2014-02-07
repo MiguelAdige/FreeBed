@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `freebed`.`biens` (
   `nom` VARCHAR(45) NULL,
   `type` SET('Appartement','Gite', 'Chambre d\'hote') NULL,
   `surface` VARCHAR(45) NULL,
-  `tarif` DECIMAL(99,99) NULL,
+  `tarif` FLOAT(4,2) NULL,
   `description` MEDIUMTEXT NULL,
   `users_id` INT NOT NULL,
   `adresse_id` INT NOT NULL,
