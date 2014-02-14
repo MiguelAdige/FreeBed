@@ -1,4 +1,6 @@
 <?php
+include_once 'bdd.php';
+
 if (isset($_GET['p']) && preg_match("/^[a-z0-9]+$/i",$_GET['p'])) {
 	// Vérifie si le fichier existe avant inclusion
 	if(file_exists('include/' . $_GET['p'] . '.php')){
