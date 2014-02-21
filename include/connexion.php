@@ -18,7 +18,7 @@
 			if($resultat->rowCount() != 0){
 				$user = $resultat->fetchAll();
 				$_SESSION['user'] = $user[0];
-				header("Location:/FreeBed/");
+				header("Location:/FreeBed/index.php?p=edit-profil");
 			}
 			else{
 				echo "Erreur dans le pseudo/password";
