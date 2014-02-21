@@ -1,16 +1,38 @@
-*{margin: 0; padding: 0;}
-body{width: 100%; margin: 0 auto;}
 
-#header{width: 100%;}
-
-#line{width: 100%; height: 5px; background-color: grey;}
-#all{width: 1000px; margin: 0 auto;}
-#left{float: left;}
-#right{float:right;}
-
-#menu{width:600px;margin-top: 20px;}
-#menu li {width:100px;display:inline-block;list-style-type:none;text-align:center;}
-#menu li a{display:inline-block;width:170px;text-decoration:none;color:black;}
-#menu li a:hover{color:red;}
-
-.border1{border:1px solid black;border-collapse:collapse;}
+@font-face {
+    font-family: "SEASRN__";
+    src: url("../font/SEASRN__.ttf");
+}
+footer {
+    background: url("../img/footer.jpg") no-repeat scroll center bottom / 100% auto rgba(0, 0, 0, 0);
+    height: 300px;
+    margin: auto;
+}
+nav ul {
+    margin-top: 100px;
+}
+nav li {
+    background-color: #FFFFFF;
+    display: inline-block;
+    height: 50px;
+    list-style-type: none;
+    text-align: center;
+    width: 24.5%;
+}
+nav li a {
+    display: inline-block;
+    font-family: 'SEASRN__';
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+nav li a:hover {
+    color: #000000;
+}
+nav li:hover {
+    opacity: 0.5;
+}
+.border1 {
+    border: 1px solid #000000;
+    height: 299px;
+}
