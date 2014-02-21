@@ -8,10 +8,10 @@
 </head>
 <body>
 
-	<nav method="POST" action="login.php"> 
-		Login<input type="text" name="email"/><br/> 
+	<nav method="POST" action="?p=connexion"> 
+		Pseudo<input type="text" name="pseudo"/><br/> 
 		Password<input type="password" name="password"/><br/> 
-		<input type="submit" name="submit" value="se connecter"> 
+		<input type="submit" name="submit" value="Se connecter"> 
 	</nav>
 
 	<form method="get" action="/recherche.php" onsubmit="var q = $('#q').val(); if(q == 'Recherche' || q == ''){return false;}">
@@ -22,11 +22,11 @@
 	</form>
 
 	<ul id="menu_horizontal">
-<li class="bouton_gauche"><a href="accueil.php">Accueil</a></li>
-<li class="bouton_gauche"><a href="inscription.php">Inscription</a></li>
-<li class="bouton_gauche"><a href="connexion.php">Connexion</a></li>
-<li class="bouton_droite"><a href="recherche.php">Recherche</a></li>
-<li class="bouton_droite"><a href="contact.php">Contact</a></li>
+<li class="bouton_gauche"><a href="?p=accueil">Accueil</a></li>
+<li class="bouton_gauche"><a href="?p=inscription">Inscription</a></li>
+<li class="bouton_gauche"><a href="?p=connexion">Connexion</a></li>
+<li class="bouton_droite"><a href="?p=recherche">Recherche</a></li>
+<li class="bouton_droite"><a href="?p=contact">Contact</a></li>
 	</ul>
 
 </body>
