@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Titre de la page</title>
-  <link rel="stylesheet" href="header.css">
-  <script src="script.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
