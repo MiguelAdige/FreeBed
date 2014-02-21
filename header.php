@@ -13,12 +13,11 @@
 		<input type="submit" name="submit" value="Se connecter"> 
 	</nav>
 
-	<form method="get" action="/recherche.php" onsubmit="var q = $('#q').val(); if(q == 'Recherche' || q == ''){return false;}">
-		<fieldset>
-			<input type="text" id="q" name="q" class="search placeholder" placeholder="Recherche" value="Recherche">
-			<input type="submit" name="submit_search" value="Ok">
-		</fieldset>
+	<form name="monform" action="met le nom de ta page ici" method="post">
+		<input type="text" name="recherche"/>
+		<input type="submit" value="Ok"/>
 	</form>
+
 
 	<ul id="menu_horizontal">
 <li class="bouton_gauche"><a href="?p=accueil">Accueil</a></li>

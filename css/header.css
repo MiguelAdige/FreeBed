@@ -1,49 +1,10 @@
-ul#menu_horizontal { 
-width : 600px; 
-height : 30px;
-margin : 2em 0 0 0;
-padding : 0;
-background-color : #f4f9fd;
-border : 1px dashed black;
-list-style-type : none; 
-}
- 
-ul#menu_horizontal li {
-padding : 0 0.5em;  
-line-height : 30px;
-}
- 
-ul#menu_horizontal li.bouton_gauche {
-float : left;
-border-right : 1px dashed black; 
-}
- 
-ul#menu_horizontal li.bouton_droite {
-float : right;
-border-left : 1px dashed black;
-}
- 
-ul#menu_horizontal a {
-color : black;
-text-decoration : none;
-padding : 0 0.5em; 
-font :  0.8em "Trebuchet MS";
-}
- 
-ul#menu_horizontal a:hover { text-decoration : underline; }
- 
-ul#menu_horizontal a img { 
-border : none;
-padding :  0 0.3em;
+form {
+text-align: right;
+float: right;
+clear: both;
 }
 
-form
-{
-	width: 208px;
-	margin-right: 26px;
+nav {
+text-align: left;
 }
 
-nav
-{
-	
-}
