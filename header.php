@@ -17,7 +17,7 @@
 	<form method="get" action="/recherche.php" onsubmit="var q = $('#q').val(); if(q == 'Recherche' || q == ''){return false;}">
 		<fieldset>
 			<input type="text" id="q" name="q" class="search placeholder" placeholder="Recherche" value="Recherche">
-			<input type="submit" name="submit_search" value="">
+			<input type="submit" name="submit_search" value="Ok">
 		</fieldset>
 	</form>
 
