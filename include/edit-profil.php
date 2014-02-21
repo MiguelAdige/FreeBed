@@ -1,4 +1,6 @@
 <?php
+// Vérifie si l'utilisateur est bien connecter
+$security->is_logged();
 
 // Si une requete est executer
 if (isset($_POST['pseudo']) && 
@@ -14,6 +16,7 @@ if (isset($_POST['pseudo']) &&
 		// Ont enregistre
 		$save = $bdd->prepare("UPDATE users
  						SET pseudo = :pseudo,
+
  							nom = :nom,
  							prenom = :prenom,
  							email = :email
