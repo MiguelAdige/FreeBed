@@ -25,6 +25,7 @@
 <li class="bouton_gauche"><a href="accueil.php">Accueil</a></li>
 <li class="bouton_gauche"><a href="inscription.php">Inscription</a></li>
 <li class="bouton_gauche"><a href="connexion.php">Connexion</a></li>
+<li class="bouton_droite"><a href="recherche.php">Recherche</a></li>
 <li class="bouton_droite"><a href="contact.php">Contact</a></li>
 	</ul>
 
