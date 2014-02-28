@@ -39,7 +39,7 @@ Page de listing
 =======
 Affiche tout les biens que possède l'utilisateur avec le lien vers la page de modification et un lien pour le supprimer et qui le redirige vers la page de listing apres suppression en lui confirment par l'affichage d'un message
 
-Page d'ajout de bien
+Page d'ajout de bien (JuanTrochez)
 =======
 l'utilisateur définit les différentes dates de disponibilités de son bien et les différentes caractéristique du bien. Ce module leur permet de définir le lieu, le prix de la location, la date de fin du bail. Ils ont également la possibilité d'y joindre des photos du bien afin de faciliter la location
 
@@ -66,7 +66,7 @@ Page mes location
 =======
 l'utilisateur peut visualiser tout l'historique de ses locations.
 
-Page de modification du profil
+Page de modification du profil (MiguelAdige)
 =======
 l'utilisateur peut modifier toutes ses coordonnées adresse etc.. Avec un lien vers la page "Mes locations"
 
