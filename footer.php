@@ -1,5 +1,7 @@
+</section>
+
 <footer>
-  <nav class="border1">
+  <nav>
     <ul>
       <li><a href="#accueil">haut de page</a></li>
       <li><a href="">inscription</a></li>

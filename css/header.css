@@ -1,10 +1,9 @@
-form {
-text-align: right;
-float: right;
-clear: both;
+.left{
+	float: left;
 }
-
-nav {
-text-align: left;
+.right{
+	float: right;
 }
-
+#menu{
+	clear: both;
+}

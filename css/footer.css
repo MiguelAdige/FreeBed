@@ -6,12 +6,13 @@
 footer {
     background: url("../img/15.jpg") no-repeat scroll center bottom / 100% auto rgba(0, 0, 0, 0);
     height: 300px;
-    margin: auto;
+    margin: 0 auto;
+    border: 1px solid #000000;
 }
-nav ul {
+footer nav ul {
     margin-top: 100px;
 }
-nav li {
+footer nav li {
     background-color: #FFFFFF;
     display: inline-block;
     height: 50px;
@@ -19,17 +20,17 @@ nav li {
     text-align: center;
     width: 24.5%;
 }
-nav li a {
+footer nav li a {
     display: inline-block;
     font-family: 'SEASRN__';
     line-height: 50px;
     text-align: center;
     text-decoration: none;
 }
-nav li a:hover {
+footer nav li a:hover {
     color: #000000;
 }
-nav li:hover {
+footer nav li:hover {
     opacity: 0.5;
 }
 .border1 {
