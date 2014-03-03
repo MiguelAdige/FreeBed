@@ -1,0 +1,12 @@
+label{
+	display: block;
+	color: #666;
+}
+.block{
+	display: block;
+}
+button[type="submit"]{
+	background: #F1F1F1;
+	border: 1px solid #888;
+	color: #666;
+}
