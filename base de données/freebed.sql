@@ -11,7 +11,7 @@ USE `freebed` ;
 CREATE TABLE IF NOT EXISTS `freebed`.`adresses` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `adresse` VARCHAR(255) NULL,
-  `cp` SMALLINT(5) NULL,
+  `cp` INT(5) NULL,
   `ville` VARCHAR(255) NULL,
   `pays` VARCHAR(255) NULL,
   PRIMARY KEY (`id`))
