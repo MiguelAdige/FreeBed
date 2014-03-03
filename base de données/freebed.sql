@@ -6,6 +6,19 @@ CREATE SCHEMA IF NOT EXISTS `freebed` DEFAULT CHARACTER SET utf8 COLLATE utf8_ge
 USE `freebed` ;
 
 -- -----------------------------------------------------
+-- Table `freebed`.`adresses`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `freebed`.`adresses` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `adresse` VARCHAR(255) NULL,
+  `cp` SMALLINT(5) NULL,
+  `ville` VARCHAR(255) NULL,
+  `pays` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `freebed`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `freebed`.`users` (
@@ -16,20 +29,14 @@ CREATE TABLE IF NOT EXISTS `freebed`.`users` (
   `email` VARCHAR(45) NULL,
   `password` VARCHAR(255) NULL,
   `bailleur` TINYINT(1) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `freebed`.`adresses`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `freebed`.`adresses` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `adresse` VARCHAR(255) NULL,
-  `cp` TINYINT(5) NULL,
-  `ville` VARCHAR(255) NULL,
-  `pays` VARCHAR(255) NULL,
-  PRIMARY KEY (`id`))
+  `adresses_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_users_adresses1_idx` (`adresses_id` ASC),
+  CONSTRAINT `fk_users_adresses1`
+    FOREIGN KEY (`adresses_id`)
+    REFERENCES `freebed`.`adresses` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
