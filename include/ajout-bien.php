@@ -4,10 +4,11 @@
 
 
 	//on verifie que l'utilisateur a bien rentrer toutes les informations
-	if(isset($_POST["nom"])	&& isset($_POST["type"]) && isset($_POST["adresse"]) && isset($_POST["cp"]) && isset($_POST["ville"]) && isset($_POST["pays"]) 
-		&& isset($_POST["tarif"])	&& isset($_POST["debut"]) && isset($_POST["fin"]) && isset($_POST["description"]) && isset($_FILES["photo"])){
+	if(isset($_POST["nom"])	&& isset($_POST["type"]) && isset($_POST["surface"]) && isset($_POST["adresse"]) && isset($_POST["cp"]) && isset($_POST["ville"]) && isset($_POST["pays"]) 
+		&& isset($_POST["tarif"]) && isset($_POST["debut"]) && isset($_POST["fin"]) && isset($_POST["description"]) && isset($_FILES["photo"])){
 		$nom = $_POST["nom"];
 		$type = $_POST["type"];
+		$surface = $_POST["surface"];
 		$adresse = $_POST["adresse"];
 		$cp = $_POST["cp"];
 		$ville = $_POST["ville"];
@@ -86,7 +87,7 @@
 						<option value="gite" name="gite">Gite</option>
 						<option value="chambre" name="chambre">Chambre d'hôte</option>
 					</select><br/>
-
+	Surface : <input type="text" name="surface"><br/>
 	Adresse : <input type="text" name="adresse"><br/>
 	Code Postal : <input type="text" name="cp"><br/>
 	Ville : <input type="text" name="ville"><br/>
