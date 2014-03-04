@@ -15,27 +15,23 @@
 		$tarif = $_POST["tarif"];
 		$debut = $_POST["debut"];
 		$fin = $_POST["fin"];
+		$description = $_POST["description"];
 		$photo = $_FILES["photo"];
 		$upload = "../upload";
-		$uploadName = date();
-		move_uploaded_file($_FILES["photo"], $uploadName);
+		$uploadName = date("d-m-Y-H:i");
+		move_uploaded_file($uploadName, $upload);
 	
 
 		//requete pour la table 'adresse'
 		try{
-			$adresse = $bdd->prepare("INSERT INTO adresses(adresse, cp, ville, pays) VALUES(:adresse, :cp; :ville; :pays);");
+			$adresse = $bdd->prepare("INSERT INTO adresses (adresse, cp, ville, pays) VALUES (?, ?, ?, ?)");
 			$bdd->beginTransaction();
 
-			$adresse->execute(array(
-				":adresse" => $adresse,
-				":cp" => $cp,
-				":ville" => $ville,
-				":pays" => $pays,
-				));
+			$adresse->execute(array($adresse,  $cp, $ville, $pays));
 			$idAdresse = $bdd->lastInsertId();
 			$bdd->commit();
 		}
-		catch(PDOExecption $e){
+		catch(PDOException $e){
 			$bdd->rollback();
 			print "Error! ".$e->getMessage()."<br/>";
 		}
@@ -50,14 +46,14 @@
 				":type" => $type,
 				":surface" => $surface,
 				":tarif" => $tarif,
-				":description" => $descritption,
-				":adresse" => $idAdresse,
+				":description" => $description,
+				":adresse" => $idAdresse
 				));
 
 			$idBien = $bdd->lastInsertId();
 			$bdd->commit();
 		}
-		catch(PDOExecption $e){
+		catch(PDOException $e){
 			$bdd->rollback();
 				print "Error! ".$e->getMessage()."<br/>";
 		}
@@ -66,14 +62,14 @@
 		$disponibilitees->execute(array(
 			":debut" => $debut,
 			":fin" => $fin,
-			":idBien" => $idBien,
+			":idBien" => $idBien
 			));
 
 		$image=$bdd->prepare("INSERT INTO images(nom, url, biens_id) VALUES(:nom, :url, :idBien)");
 		$image->execute(array(
 			":nom"=> $uploadName,
 			":url"=>$photo,
-			"idBien"=>$idBien,
+			":idBien"=>$idBien
 			));
 		
 		}
