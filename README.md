@@ -6,13 +6,14 @@ Projet immobilier
 Terminer
 =======
 
-Script de connexion fini
-Script d'inscription fini
+Script de connexion terminer
+Script d'inscription terminer
+Page de modification de profil terminer
 
 A faire
 =======
 Page d'acceuil
- =======
+=======
  Afficher des liens vers les bien de chaque ville. Barre de recherche qui permet de chercher par lieu, date d'arrivé et de départ après validation l'affichage des résultat se font sur la page de recherche dédié.
 
 Page de profil
@@ -66,7 +67,4 @@ Page mes location
 =======
 l'utilisateur peut visualiser tout l'historique de ses locations.
 
-Page de modification du profil (MiguelAdige)
-=======
-l'utilisateur peut modifier toutes ses coordonnées adresse etc.. Avec un lien vers la page "Mes locations"
 
