@@ -5,7 +5,7 @@
 
 	//on verifie que l'utilisateur a bien rentrer toutes les informations
 	if(isset($_POST["nom"])	&& isset($_POST["type"]) && isset($_POST["adresse"]) && isset($_POST["cp"]) && isset($_POST["ville"]) && isset($_POST["pays"]) 
-		&& isset($_POST["tarif"])	&& isset($_POST["debut"]) && isset($_POST["fin"]) && isset($_POST["description"]) && isset($_POST["photo"])){
+		&& isset($_POST["tarif"])	&& isset($_POST["debut"]) && isset($_POST["fin"]) && isset($_POST["description"]) && isset($_FILES["photo"])){
 		$nom = $_POST["nom"];
 		$type = $_POST["type"];
 		$adresse = $_POST["adresse"];
@@ -24,7 +24,7 @@
 		//requete pour la table 'adresse'
 		try{
 			$adresse = $bdd->prepare("INSERT INTO adresses(adresse, cp, ville, pays) VALUES(:adresse, :cp; :ville; :pays);");
-			$bdd -> beginTransaction();
+			$bdd->beginTransaction();
 
 			$adresse->execute(array(
 				":adresse" => $adresse,
@@ -32,7 +32,7 @@
 				":ville" => $ville,
 				":pays" => $pays,
 				));
-			$idAdresse->lastInsertId();
+			$idAdresse = $bdd->lastInsertId();
 			$bdd->commit();
 		}
 		catch(PDOExecption $e){
@@ -54,7 +54,7 @@
 				":adresse" => $idAdresse,
 				));
 
-			$idBien->lastInsertId();
+			$idBien = $bdd->lastInsertId();
 			$bdd->commit();
 		}
 		catch(PDOExecption $e){
