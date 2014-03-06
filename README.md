@@ -9,6 +9,7 @@ Terminer
 Script de connexion terminer
 Script d'inscription terminer
 Page de modification de profil terminer
+Page d'ajout de bien terminer
 
 A faire
 =======
@@ -16,7 +17,7 @@ Page d'acceuil
 =======
  Afficher des liens vers les bien de chaque ville. Barre de recherche qui permet de chercher par lieu, date d'arrivé et de départ après validation l'affichage des résultat se font sur la page de recherche dédié.
 
-Page de profil
+Page de profil (JuanTrochez)
 =======
 Avec récapitulatif de toutes ses locations (précédentes et à venir)
 
@@ -40,10 +41,6 @@ Page de listing
 =======
 Affiche tout les biens que possède l'utilisateur avec le lien vers la page de modification et un lien pour le supprimer et qui le redirige vers la page de listing apres suppression en lui confirment par l'affichage d'un message
 
-Page d'ajout de bien (JuanTrochez)
-=======
-l'utilisateur définit les différentes dates de disponibilités de son bien et les différentes caractéristique du bien. Ce module leur permet de définir le lieu, le prix de la location, la date de fin du bail. Ils ont également la possibilité d'y joindre des photos du bien afin de faciliter la location
-
 Page modification de bien 
 =======
 Permet de remettre en location par le bailleur lorsqu'il le souhaite, sans avoir à le recréer de nouveau entièrement et de modifier toutes les caractéristiques si il le souhaite
@@ -52,7 +49,7 @@ Page de planning
 =======
 Affiche le planning d'occupation de chaque bien pour l'utlisateur
 
-Page de recherche
+Page de recherche 
 ======= 
 Tous les visiteurs peuvent chercher une location suivant différents critères :
 
