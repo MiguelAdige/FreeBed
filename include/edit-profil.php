@@ -1,6 +1,6 @@
 <?php
 // Vérifie si l'utilisateur est bien connecter
-$security->is_logged();
+$security->is_logged($bdd);
 
 
 // Récupère les données de l'utilisateur
