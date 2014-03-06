@@ -5,8 +5,13 @@ label{
 .block{
 	display: block;
 }
+input, select{
+	margin: 0 0 10px 0;
+}
 button[type="submit"]{
 	background: #F1F1F1;
 	border: 1px solid #888;
 	color: #666;
+	font-size: 18px;
+	padding: 5px 10px;
 }

@@ -73,8 +73,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `freebed`.`date_disponibilites` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `date_debut` DATETIME NULL,
-  `date_fin` DATETIME NULL,
+  `date_debut` DATE NULL,
+  `date_fin` DATE NULL,
   `biens_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_date_disponibilites_biens1_idx` (`biens_id` ASC),
