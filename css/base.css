@@ -1,6 +1,7 @@
 /* Style générale */
 body{
 	font-family: sans-serif;
+	font-size: 14px;
 }
 #content{
 	margin-bottom: 20px;
@@ -8,6 +9,10 @@ body{
 a{
 	text-decoration: none;
 	outline: none;
+}
+a:hover{
+	color: red;
+	transition: color .5s;
 }
 /* Style page inscription */
 .inscription, .edit-profil{

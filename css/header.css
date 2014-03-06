@@ -7,3 +7,7 @@
 #menu{
 	clear: both;
 }
+.header-search button{
+	font-size: 14px !important;
+	padding: 1.5px !important;
+}
