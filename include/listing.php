@@ -44,8 +44,6 @@
 
 <?php
 
-			$compteur++; //incrementation du compteur
-
 		} //accolade fermante de la boucle qui affiche les biens
 
 	} //accolade fermente du 1er 'if' pour verifier que la requete retourne des lignes
