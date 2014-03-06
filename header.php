@@ -7,26 +7,13 @@
 </head>
 <body>
 <header>
-	<?php 
-	if(!$security->logged()){
-	?>
-	<form class="left" method="POST" action="?p=connexion"> 
-		<label for="pseudo">Pseudo</label>
-		<input type="text" name="pseudo"/><br/> 
-		<label for="password">Password</label>
-		<input type="password" name="password"/><br/> 
-		<button type="submit">Se connecter</button>
-	</form>
-	<?php
-	}
-	?>
-
+	<h1 class="logo left"><a href="/Freebed/">Tropical</a></h1>
 	<form class="right header-search" action="?p=recherche" method="post">
 		<input type="text" name="recherche"/>
 		<button type="submit">Ok</button>
 	</form>
 
-	<nav>
+	<nav class="clear">
 		<ul id="menu">
 			<li><a href="?p=accueil">Accueil</a></li>
 			<li><a href="?p=recherche">Recherche</a></li>
@@ -46,6 +33,7 @@
 			?>
 		</ul>
 	</nav>
+	<div class="clear"></div>
 </header>
 
 <section id="content">

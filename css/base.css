@@ -2,16 +2,30 @@
 body{
 	font-family: sans-serif;
 	font-size: 14px;
+	background: #E9E6E0;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.clear{
+	clear: both;
 }
 #content{
+	width: 100%;
+	max-width: 1140px;
+	margin: 0 auto;
 	margin-bottom: 20px;
 }
 a{
 	text-decoration: none;
 	outline: none;
+	color: #fff;
 }
 a:hover{
-	color: red;
+	color: #B1B1B1;
 	transition: color .5s;
 }
 /* Style page inscription */
