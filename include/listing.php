@@ -1,6 +1,6 @@
 <?php
 	
-	$security->is_logged();
+	$security->is_logged($bdd);
 
 	//requete pour voir si l'utilisateur possede un bien
 	$requete = $bdd->prepare('SELECT u.id, b.id  
