@@ -1,3 +1,11 @@
+<?php
+$nr_de_vue = $bdd->query('SELECT visites FROM biens');
+$resultat = $nr_de_vue->fetch();
+$nr_de_vue = $resultat['visites']++;
+echo $resultat['visites'];
+
+?>
+
 <article class="left">
 	<div class="photo">
 		<img src="" alt="photo">
