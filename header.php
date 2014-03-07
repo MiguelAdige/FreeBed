@@ -7,11 +7,14 @@
 </head>
 <body>
 <header>
-	<h1 class="logo left"><a href="/Freebed/">Tropical</a></h1>
-	<form class="right header-search" action="?p=recherche" method="post">
-		<input type="text" name="recherche"/>
-		<button type="submit">Ok</button>
-	</form>
+	<div class="top-area">
+		<h1 class="logo left"><a href="/Freebed/"><img src="img/logo.png" alt="Tropical"></a></h1>
+		<form class="right header-search" action="?p=recherche" method="post">
+			<input type="text" name="recherche" placeholder="Recherche" />
+			<button type="submit">Ok</button>
+		</form>
+		<div class="clear"></div>
+	</div>
 
 	<nav class="clear">
 		<ul id="menu">
