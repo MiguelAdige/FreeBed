@@ -141,13 +141,8 @@
 			);
 
 			foreach ($country as $key => $pays) {
-					$selected = null;
 
-				if($profil->pays == $pays){
-						$selected = "selected";
-				}
-
-				echo '<option value="'.$pays.'" '.$selected.'>'.$pays.'</option>';
+				echo '<option value="'.$pays.'" >'.$pays.'</option>';
 			}
 		?>
 	</select>
