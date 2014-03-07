@@ -1,6 +1,6 @@
 <?php 
 	// Vérifie si l'utilisateur est bien connecté
-	$security->is_logged();
+	$security->is_logged($bdd);
 
 	//on verifie que l'utilisateur a bien rentrer toutes les informations
 	if(isset($_POST["nom"])	&& isset($_POST["type"]) && isset($_POST["surface"]) && isset($_POST["adresse"]) && isset($_POST["cp"]) && isset($_POST["ville"]) && isset($_POST["pays"]) 
