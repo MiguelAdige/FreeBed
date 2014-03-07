@@ -46,7 +46,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `freebed`.`biens` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NULL,
-  `type` SET('Appartement','Gite', 'Chambre d\'hote') NULL,
+  `type` SET('Appartement','Gite', 'Chambre') NULL,
   `surface` VARCHAR(45) NULL,
   `tarif_week` FLOAT(8,2) NULL,
   `tarif_day` FLOAT(8,2) NULL,

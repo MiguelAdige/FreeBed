@@ -4,7 +4,7 @@
 
 	//on verifie que l'utilisateur a bien rentrer toutes les informations
 	if(isset($_POST["nom"])	&& isset($_POST["type"]) && isset($_POST["surface"]) && isset($_POST["adresse"]) && isset($_POST["cp"]) && isset($_POST["ville"]) && isset($_POST["pays"]) 
-		&& isset($_POST["tarif"]) && isset($_POST["date_debut"]) && isset($_POST["date_fin"]) && isset($_POST["description"]) && isset($_FILES["photo"])){
+		&& isset($_POST["tarif_week"]) && isset($_POST["tarif_day"]) && isset($_POST["date_debut"]) && isset($_POST["date_fin"]) && isset($_POST["description"]) && isset($_FILES["photo"])){
 		
 		$photo = $_FILES["photo"];
 
@@ -69,14 +69,15 @@
 
 			//requete pour la table 'biens'
 			try{
-				$bien = $bdd->prepare("INSERT INTO biens(nom, type, surface, tarif, description, users_id, adresse_id) VALUES(:nom, :type, :surface, :tarif, :description, :user, :adresse);");
+				$bien = $bdd->prepare("INSERT INTO biens(nom, type, surface, tarif_week, tarif_day, description, users_id, adresse_id) VALUES(:nom, :type, :surface, :tarif_week, :tarif_day, :description, :user, :adresse);");
 				$bdd->beginTransaction();
 
 				$bien->execute(array(
 					":nom" => $_POST["nom"],
 					":type" => $_POST["type"],
 					":surface" => $_POST["surface"],
-					":tarif" => $_POST["tarif"],
+					":tarif_week" => $_POST["tarif_week"],
+					":tarif_day"	=> $_POST['tarif_day'],
 					":description" => $_POST["description"],
 					":adresse" => $idAdresse,
 					":user"		=> $_SESSION['user']['id']
@@ -146,8 +147,10 @@
 			}
 		?>
 	</select>
-	<label for="tarif">Prix de location :</label>
-	<input type="number" id="tarif" name="tarif">
+	<label for="tarif_week">Prix de location par semaine :</label>
+	<input type="number" id="tarif_week" name="tarif_week">
+	<label for="tarif_week">Prix de location par jour :</label>
+	<input type="number" id="tarif_day" name="tarif_day">
 	<label for="date">Disponibilité :</label>
 	Du <input type="date" id="date" name="date_debut"> au <input type="date" name="date_fin">
 	<label for="description">Description :</label>
