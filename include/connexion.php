@@ -34,7 +34,7 @@
 	
 		<div class="header">
 		<h1>CONNEXION</h1>
-		<span>Fill out the form below to login to my super awesome imaginary control panel.</span>
+		<span>Vueillez saisir votre pseudo et votre mot de passe </span>
 		</div>
 	
 		<div class="content">

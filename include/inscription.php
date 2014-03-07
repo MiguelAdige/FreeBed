@@ -69,6 +69,8 @@ if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) &&
 <section class="inscription">
 
 	<form method="POST" action="?p=inscription">
+		<fieldset>
+			<legend>Utilisateur</legend>
 		<label for="pseudo">Pseudo</label>
 		<input type="text" name="pseudo" id="pseudo" required>
 		<label for="nom">Nom</label>
@@ -79,7 +81,10 @@ if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) &&
 		<input type="email" name="email" id="email" required>
 		<label for="password">Mot de passe</label>
 		<input type="password" name="password" id="password" required>
+		</fieldset>
 
+		<fieldset>
+			<legend>Vos coordonnées</legend>
 		<label for="adresse">Adresse</label>
 		<input type="text" name="adresse" id="adresse" required>
 		<label for="cp">Code postal</label>
@@ -99,6 +104,7 @@ if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) &&
 			}
 			?>
 		</select>
+		</fieldset>
 		<button class="block" type="submit">S'inscrire</button>
 	</form>	
 </section>
