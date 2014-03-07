@@ -28,6 +28,13 @@ a:hover{
 	color: #B1B1B1;
 	transition: color .5s;
 }
+
+/* Taille pour les images de la page d'accueil*/
+.images{
+	width: 200px;
+	height: 200px;
+}
+
 /* Style page inscription */
 .inscription, .edit-profil {
 	width: 900px;

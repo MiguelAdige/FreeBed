@@ -4,44 +4,44 @@
 <div id="portfolio">
 	<ul class="portfolio-grid">
 					<li>
-						<a href="ville1.php" class="animated flipInX">
-							<img src="http://placehold.it/200x200/1abc9c/FFFFFF" alt="img01"/>
+						<a href="Etat-Unis.php" class="animated flipInX">
+							<img class="images" src="../img/Etat-Unis.jpg" alt="Etat-Unis"/>
 						</a>
 					</li>
 					<li>
-						<a href="ville2.php" class="animated flipInX">
-							<img src="http://placehold.it/200x200/2ecc71/FFFFFF" alt="img01"/>
+						<a href="Allemagne.php" class="animated flipInX">
+							<img class="images" src="../img/Allemagne.jpg" alt="Allemagne"/>
 						</a>
 					</li>
 					<li>
-						<a href="ville3.php" class="animated flipInX">
-							<img src="http://placehold.it/200x200/3498db/FFFFFF" alt="img01"/>
+						<a href="Angleterre.php" class="animated flipInX">
+							<img class="images" src="../img/Angleterre.jpg" alt="Angleterre"/>
 						</a>
 					</li>
 					<li>
-						<a href="ville4.php" class="animated flipInX">
-							<img src="http://placehold.it/200x200/9b59b6/FFFFFF" alt="img01"/>
+						<a href="Chine.php" class="animated flipInX">
+							<img class="images" src="../img/Chine.jpg" alt="Chine"/>
 						</a>
 					</li>
 					<br/>
 					<li>
-						<a href="ville5.php" class="animated flipInX">
-							<img src="http://placehold.it/200x200/16a085/FFFFFF" alt="img01"/>
+						<a href="Espagne.php" class="animated flipInX">
+							<img class="images" src="../img/Espagne.jpg" alt="Espagne"/>
 						</a>
 					</li>
 					<li>
-						<a href="ville6.php" class="animated flipInX">
-							<img src="http://placehold.it/200x200/27ae60/FFFFFF" alt="img01"/>
+						<a href="France.php" class="animated flipInX">
+							<img class="images" src="../img/France.jpg" alt="France"/>
 						</a>
 					</li>
 					<li>
-						<a href="ville7.php" class="animated flipInX">
-							<img src="http://placehold.it/200x200/2980b9/FFFFFF" alt="img01"/>
+						<a href="Turquie.php" class="animated flipInX">
+							<img class="images" src="../img/Turquie.jpg" alt="Turquie"/>
 						</a>
 					</li>
 					<li>
-						<a href="ville8.php" class="animated flipInX">
-							<img src="http://placehold.it/200x200/8e44ad/FFFFFF" alt="img01"/>
+						<a href="Italie.php" class="animated flipInX">
+							<img src="../img/Italie.jpg" alt="Italie"/>
 						</a>
 					</li>
 				</ul>
