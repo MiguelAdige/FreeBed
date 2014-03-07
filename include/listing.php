@@ -4,9 +4,11 @@
 
 	//requete pour voir si l'utilisateur possede un bien
 	$requete = $bdd->prepare("SELECT * 
-								FROM biens b
-								JOIN images i
-									ON b.id = i.id
+								FROM biens b 
+								JOIN users u 
+									ON users_id = u.id
+								LEFT JOIN images i 
+									ON biens_id = b.id
 								WHERE users_id = :user");
 
 	$requete->execute(array(
@@ -17,19 +19,19 @@
 	if($requete->rowCount() != 0){
 
 
-		//boucle qui affiche les biens de l'utilisateur : tant que le compteur est inférieur au nb de lignes de la requete
+		//boucle qui affiche les biens de l'utilisateur
 		while($donnees = $requete->fetch()){
-			
+			//var_dump($donnees);
 ?>
 				<section>
 	
 					<ul>
 						<li>
-							<img src="#">
+							<img src="<?php echo $donnees['url'] ?>">
 	
 							Nom : <?php echo $donnees['nom']; ?> <br/>
 							Type : <?php echo $donnees['type']; ?><br/>
-							Surface : <?php echo $donnees['surface']; ?> <br/>
+							Surface : <?php echo $donnees['surface']; ?> m² <br/>
 							Tarif : <?php echo $donnees['tarif']; ?> <br/>
 							Description : <?php echo $donnees['description']; ?> <br/>						
 	
@@ -41,7 +43,10 @@
 
 <?php
 
+
 		} //accolade fermante de la boucle qui affiche les biens
+
+		$requete->closeCursor(); // termine le traitement de la requete
 
 	} //accolade fermente du 1er 'if' pour verifier que la requete retourne des lignes
 	else{
