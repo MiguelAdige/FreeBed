@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS `freebed`.`biens` (
   `tarif_week` FLOAT(8,2) NULL,
   `tarif_day` FLOAT(8,2) NULL,
   `description` MEDIUMTEXT NULL,
+  `visites` INT NULL,
   `users_id` INT NOT NULL,
   `adresse_id` INT NOT NULL,
   PRIMARY KEY (`id`),
