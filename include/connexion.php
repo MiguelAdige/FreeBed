@@ -30,25 +30,24 @@
 	}
 ?>
 
+    		<form name="login-form" class="login-form" action="?p=connexion" method="POST">
+	
+		<div class="header">
+		<h1>CONNEXION</h1>
+		<span>Fill out the form below to login to my super awesome imaginary control panel.</span>
+		</div>
+	
+		<div class="content">
+		<input name="pseudo" type="text" class="input username" placeholder="Pseudo" required/>
+		<div class="user-icon"></div>
+		<input name="password" type="password" class="input password" placeholder="Password" required/>
+		<div class="pass-icon"></div>		
+		</div>
 
-    	<form method="POST" action="?p=connexion">
-    		<table>
-    			<tr>
-    				<td>Pseudo : </td>
-    				<td><input type="text" name="pseudo" required></td>
-    			</tr>
-
-    			<tr>
-    				<td>Password : </td>
-    				<td><input type="password" name="password" required></td>
-    			</tr>
-
-    			<tr>
-    				<td colspan="2"><input type="submit" value="Se connecter"></td>
-    			</tr>
-
-    		</table>
-
-    	</form>
+		<div class="footer">
+		<input type="submit" name="submit" value="Se connecter" class="button" />
+		</div>
+	
+	</form>
 
 	
