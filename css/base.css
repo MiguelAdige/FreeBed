@@ -13,7 +13,8 @@ body{
 .clear{
 	clear: both;
 }
-#content{
+#content{	
+	padding: 10px 0 0 0;
 	width: 100%;
 	max-width: 1140px;
 	margin: 0 auto;
@@ -28,8 +29,18 @@ a:hover{
 	color: #B1B1B1;
 	transition: color .5s;
 }
-
-
+.button{
+	border-radius: 3px;
+	background: #007295;
+	padding: 10px 15px;
+	color: white;
+	display: inline-block;
+}
+.button:hover{
+	background: #008cba;
+	color: #E2E2E2;
+	transition:background .5s ease-out;
+}
 
 /* Style page inscription */
 .error{
