@@ -82,7 +82,6 @@ if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) &&
 		<label for="password">Mot de passe</label>
 		<input type="password" name="password" id="password" required>
 		</fieldset>
-		<br/>
 		<fieldset>
 			<legend>Vos coordonnées</legend>
 		<label for="adresse">Adresse</label>
@@ -105,6 +104,6 @@ if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) &&
 			?>
 		</select>
 		</fieldset>
-		<button class="block" type="submit">S'inscrire</button>
+		<div class="footer"><button class="block" type="submit">S'inscrire</button></div>
 	</form>	
 </section>
