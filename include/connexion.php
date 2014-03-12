@@ -45,7 +45,7 @@
 		</div>
 
 		<div class="footer">
-		<input type="submit" name="submit" value="Se connecter" class="button" />
+		<input type="submit" name="submit" value="Se connecter" class="button right" />
 		</div>
 	
 	</form>

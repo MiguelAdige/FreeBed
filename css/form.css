@@ -3,15 +3,22 @@ label{
 	color: #666;
 }
 .block{
-	display: block;
+	display: block !important;
 }
 input, select{
 	margin: 0 0 10px 0;
 }
-button[type="submit"]{
-	background: #F1F1F1;
-	border: 1px solid #888;
-	color: #666;
-	font-size: 18px;
-	padding: 5px 10px;
+button[type="submit"], .button{
+	border-radius: 3px;
+	background: #007295;
+	padding: 10px 15px;
+	color: white;
+	display: inline-block;
+	border:none;
+	font-size: 17px;
+}
+button[type="submit"]:hover, .button:hover{
+	background: #008cba;
+	color: #E2E2E2;
+	transition:background .5s ease-out;
 }

@@ -104,6 +104,6 @@ if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) &&
 			?>
 		</select>
 		</fieldset>
-		<div class="footer"><button class="block" type="submit">S'inscrire</button></div>
+		<div class="footer"><button class="button right" type="submit">S'inscrire</button></div>
 	</form>	
 </section>
