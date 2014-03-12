@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS `freebed`.`biens` (
   `visites` INT NULL,
   `users_id` INT NOT NULL,
   `adresse_id` INT NOT NULL,
+  `avtive` TINYINT(1) NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   INDEX `fk_biens_users_idx` (`users_id` ASC),
   INDEX `fk_biens_adresse1_idx` (`adresse_id` ASC),
@@ -137,6 +138,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `freebed`.`locations` (
   `users_id` INT NOT NULL,
   `biens_id` INT NOT NULL,
+  `date_debut` DATE NULL,
+  `date_fin` DATE NULL,
   PRIMARY KEY (`users_id`, `biens_id`),
   INDEX `fk_users_has_biens_biens1_idx` (`biens_id` ASC),
   INDEX `fk_users_has_biens_users1_idx` (`users_id` ASC),
@@ -146,6 +149,24 @@ CREATE TABLE IF NOT EXISTS `freebed`.`locations` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_has_biens_biens1`
+    FOREIGN KEY (`biens_id`)
+    REFERENCES `freebed`.`biens` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `freebed`.`ip_vues`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `freebed`.`ip_vues` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `ip` VARCHAR(45) NULL,
+  `date` DATE NULL,
+  `biens_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_ip_vues_biens1_idx` (`biens_id` ASC),
+  CONSTRAINT `fk_ip_vues_biens1`
     FOREIGN KEY (`biens_id`)
     REFERENCES `freebed`.`biens` (`id`)
     ON DELETE NO ACTION

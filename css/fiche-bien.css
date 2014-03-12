@@ -1,0 +1,75 @@
+
+/* Style fiche bien */
+.bien{
+	width: 70%;
+}
+.bien .image{
+	text-align: center;
+}
+.bien .image img{
+	width: 100%;
+}
+.bien-aside{
+	width: 29%;
+	margin-left: 10px;
+}
+.bien-aside .score,
+.bien-aside .reserver, 
+.bien .info-bien div, 
+.bien .image, 
+.bien .form-avis, 
+.bien .list-avis{
+	margin-bottom: 15px;
+}
+.bien-aside .score{
+	text-align: center;
+}
+.bien-aside .score span{
+	font-size: 80px;
+}
+.bien-aside .score span:first-child{
+	color: #47C1BA;
+}
+.bien-aside .score span:last-child{
+	color: #999;
+}
+.bien-aside .reserver .button{
+	width: 100%;
+	font-size: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 10px 0;
+}
+.bien-aside .score, 
+.bien-aside .info-proprio, 
+.bien .info-bien div, 
+.bien .form-avis, 
+.bien .list-avis{
+	background: #fff;
+	padding: 14px 15px 20px 15px;
+	box-shadow: 0 0 2px rgba(0,0,0,0.1);
+}
+.bien-aside .info-proprio h3, 
+.bien .info-bien div h3, 
+.bien .form-avis h3{
+	margin: 0 0 10px;
+}
+.bien .info-bien div ul{
+	list-style: none;
+	padding-left: 10px;
+}
+.list-avis .comment{
+	margin-bottom: 20px;
+}
+.comment .author strong{
+	font-size: 18px;
+}
+.comment .author span{
+	font-size: 15px;
+}
+.comment .author span.first{
+	color: #47C1BA;
+}
+.comment .author span:last-child{
+	color: #999;
+}
