@@ -69,6 +69,36 @@ if(isset($_GET['p'])){
         $params['surface'] = $_GET['surface'];
     }
 
+    if (!empty($_GET['pays'])) {
+        $sql .= " pays = :pays ";
+        $params['pays'] = $_GET['pays'];
+    }
+
+    if (!empty($_GET['ville'])) {
+        $sql .= " ville = :ville ";
+        $params['ville'] = $_GET['ville'];
+    }
+
+    if (!empty($_GET['tarif_day_min'])) {
+        $sql .= " tarif_day_min = :tarif_day_min ";
+        $params['tarif_day_min'] = $_GET['tarif_day_min'];
+    }
+
+    if (!empty($_GET['tarif_day_max'])) {
+        $sql .= " tarif_day_max = :tarif_day_max ";
+        $params['tarif_day_max'] = $_GET['tarif_day_max'];
+    }
+
+    if (!empty($_GET['tarif_week_min'])) {
+        $sql .= " tarif_week_min = :tarif_week_min ";
+        $params['tarif_week_min'] = $_GET['tarif_week_min'];
+    }
+    
+    if (!empty($_GET['tarif_week_max'])) {
+        $sql .= " tarif_week_max = :tarif_week_max ";
+        $params['tarif_week_max'] = $_GET['tarif_week_max'];
+    }
+
     echo $sql;
     var_dump($params);
     die();
