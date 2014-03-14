@@ -1,8 +1,12 @@
 </section>
 
 <footer>
-<nav class="clear">
-	 © Copyright "Tropical" 2014 tous droits réservés Tropical.
-
+<nav class="right">
+	Copyright ©
+	<script type="text/javascript">
+var d = new Date()
+document.write(d.getFullYear())
+</script>
+	  .Tous droits réservés.
 </nav>	
 </footer>
