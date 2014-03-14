@@ -1,0 +1,27 @@
+.item{
+	background: #fff;
+	webkit-box-shadow: 0 0 2px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 0 2px rgba(0,0,0,0.1);
+	box-shadow: 0 0 2px rgba(0,0,0,0.1);
+	width: 23.5%;
+	margin: 0 2% 20px 0;
+	float: left;
+}
+
+.item figure a img{
+	width: 100%;
+}
+
+.item .details{
+	background: #BDBDBD;
+	height: 100%;
+	padding: 5px;
+}
+.item .details h3{
+	margin: 0;
+}
+.item .details ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}

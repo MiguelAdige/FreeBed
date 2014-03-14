@@ -2,7 +2,7 @@
 
 	<label for="type">Type : </label>
     <select name="type" id="type">
-        <option value="all">Tous type</option>
+        <option value="">Tous type</option>
         <option value="Appartement">Appartement</option>
         <option value="Gite">Gite</option>
         <option value="Chambre">Chambre</option>
@@ -13,7 +13,7 @@
 
     <label for="pays">Pays :</label>
     <select name="pays" id="pays">4
-        <option value="indifferent">Indifférent</option>
+        <option value="">Indifférent</option>
             <?php
             // Tableau de tous les pays du monde
             $country = array(
@@ -40,9 +40,20 @@
 
 <?php
 
-if(isset($_GET['p'])){
+if(isset($_GET['p']) && !empty($_GET['type']) || 
+        !empty($_GET['surface']) || 
+        !empty($_GET['pays']) || 
+        !empty($_GET['ville']) || 
+        !empty($_GET['tarif_day_min']) ||
+        !empty($_GET['tarif_day_max']) ||
+        !empty($_GET['tarif_week_min']) ||
+        !empty($_GET['tarif_week_max'])){
 
-    $sql = "SELECT * FROM biens"; // Requete de base
+    $sql = "SELECT b.id 'b.id', b.nom 'b.nom', b.type 'b.type', b.surface 'b.surface', b.tarif_week 'b.tarif_week', b.tarif_day 'b.tarif_day', i.nom 'i.nom', i.url 'i.url' FROM biens b
+            JOIN adresses a
+                ON b.adresse_id = a.id
+            LEFT JOIN images i
+                ON b.id=i.biens_id"; // Requete de base
     $params = array(); // par défaut il n'y pas de paramettre
 
     // si l'une des variables ne sont pas vide on concataine le WHERE à la chaine $sql
@@ -59,63 +70,128 @@ if(isset($_GET['p'])){
     }
 
     // si l'une des variables ne sont pas vide on concataine à la chaine $sql
-    if(!empty($_GET['type'])){
-        $sql .= " type = :type ";
-        $params['type'] = $_GET['type'];
-    }
+    $getSQL = array(
+        'type'              => $_GET['type'],
+        'surface'           => $_GET['surface'],
+        'pays'              => $_GET['pays'],
+        'ville'             => $_GET['ville'],
+        'tarif_day_min'     => $_GET['tarif_day_min'],
+        'tarif_day_max'     => $_GET['tarif_day_max'],
+        'tarif_week_min'    => $_GET['tarif_week_min'],
+        'tarif_week_max'    => $_GET['tarif_week_max']
+    );
 
-    if (!empty($_GET['surface'])) {
-        $sql .= " surface= :surface ";
-        $params['surface'] = $_GET['surface'];
-    }
-
-    if (!empty($_GET['pays'])) {
-        $sql .= " pays = :pays ";
-        $params['pays'] = $_GET['pays'];
-    }
-
-    if (!empty($_GET['ville'])) {
-        $sql .= " ville = :ville ";
-        $params['ville'] = $_GET['ville'];
-    }
-
-    if (!empty($_GET['tarif_day_min'])) {
-        $sql .= " tarif_day_min = :tarif_day_min ";
-        $params['tarif_day_min'] = $_GET['tarif_day_min'];
-    }
-
-    if (!empty($_GET['tarif_day_max'])) {
-        $sql .= " tarif_day_max = :tarif_day_max ";
-        $params['tarif_day_max'] = $_GET['tarif_day_max'];
-    }
-
-    if (!empty($_GET['tarif_week_min'])) {
-        $sql .= " tarif_week_min = :tarif_week_min ";
-        $params['tarif_week_min'] = $_GET['tarif_week_min'];
-    }
+    $i = 1;
+    $itarif = 0;
+    $itarif_day = 0;
+    $itarif_week =0;
+    $passe_tarif_day = false;
     
-    if (!empty($_GET['tarif_week_max'])) {
-        $sql .= " tarif_week_max = :tarif_week_max ";
-        $params['tarif_week_max'] = $_GET['tarif_week_max'];
+
+    foreach ($getSQL as $key => $value) {
+
+        $i++;
+        if (!empty($_GET[$key])) {
+        
+            $params[$key] = $value;
+        }
+
+        if(!empty($_GET[$key]) && $i <= 4){
+            $and = null;
+            $max = sizeof($getSQL);
+
+            if($i > 1 && $i <= $max){
+                $and = "AND";
+            }
+
+            $sql .= " ".$key." = :".$key." ".$and;
+        }
+
+
+        if($i >= 5 && $itarif_day <= 0){
+            $itarif_day++;
+                // Tarif par jour minimum
+                if (!empty($getSQL['tarif_day_min'])) {
+                    $tarif_day_min = ":tarif_day_min";
+                }
+                else{
+                    $tarif_day_min = "''";
+                }
+                // Tarif par jour max
+                if (!empty($getSQL['tarif_day_max'])) {
+                    $tarif_day_max = ":tarif_day_max";
+                }
+                else{
+                    $tarif_day_max = "''";
+                }
+
+                if(!empty($getSQL['tarif_day_min']) || !empty($getSQL['tarif_day_max'])){
+                    $sql .= " tarif_day BETWEEN ".$tarif_day_min." AND ".$tarif_day_max."";
+                    
+                    $passe_tarif_day = true;
+                }
+        }
+
+        if($passe_tarif_day == true && $itarif <= 0){
+            $itarif++;
+            $sql .=  " OR ";
+        }
+
+        if($i >= 7 && $itarif_week <= 0){
+            $itarif_week++;
+            // Tarif par semaine minimum
+                if (!empty($getSQL['tarif_week_min'])) {
+                    $tarif_week_min = ":tarif_week_min";
+                }
+                else{
+                    $tarif_week_min = "''";
+                }
+                // Tarif par semaine max
+                if (!empty($getSQL['tarif_week_max'])) {
+                    $tarif_week_max = ":tarif_week_max";
+                }
+                else{
+                    $tarif_week_max = "''";
+                }
+
+            if (!empty($getSQL['tarif_week_min']) || !empty($getSQL['tarif_week_max'])) {
+                $sql .= " tarif_week BETWEEN ".$tarif_week_min." AND ".$tarif_week_max."";
+
+            }
+        }
+
     }
 
-    echo $sql;
-    var_dump($params);
-    die();
+    $sql = rtrim($sql, " AND");
+    
 
     $req = $bdd->prepare($sql);
     $req->execute($params);
-    echo '<ul>';
     while ($donnees = $req->fetch())
     {
-        echo '<li>' .$donnees['pseudo']. '</li>
-              <li>' .$donnees['nom']. '</li>
-              <li>' .$donnees['type']. '</li>
-              <li>' .$donnees['surface']. '</li>
-              <li>' .$donnees['tarif_day']. '</li>
-              <li>' .$donnees['tarif_week'].'</li>';
+        echo '<article class="item">
+                <figure>
+                    <a href="?p=fiche-bien&id="'.$donnees['b.id'].' title="'.$donnees['b.nom'].'">';
+                        if($donnees['i.url'] != null){
+                            echo '<img src="'.$donnees['i.url'].'" alt="">';
+                        }
+                        else{
+                            echo '<img src="img/no-image.png" alt="">';
+                        }
+                echo '
+                    </a>
+                </figure>
+                <div class="details">
+                    <h3>'.$donnees['b.nom'].'</h3>
+                    <ul>
+                        <li>Type : '.$donnees['b.type'].'</li>
+                        <li>Surface : '.$donnees['b.surface'].'m²</li>
+                        <li>Tarif par semaine : '.$donnees['b.tarif_week'].'€</li>
+                        <li>Tarif par jour : '.$donnees['b.tarif_day'].'€</li>
+                    </ul>
+                </div>
+            </article>';
     }
-    echo '</ul>';
     $req->closeCursor();
 }
 

@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `freebed`.`biens` (
   `visites` INT NULL,
   `users_id` INT NOT NULL,
   `adresse_id` INT NOT NULL,
-  `avtive` TINYINT(1) NULL DEFAULT 1,
+  `active` TINYINT(1) NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   INDEX `fk_biens_users_idx` (`users_id` ASC),
   INDEX `fk_biens_adresse1_idx` (`adresse_id` ASC),
