@@ -1,7 +1,7 @@
 </section>
 
 <footer>
-<nav class="right">
+<nav>
 	Copyright ©
 	<script type="text/javascript">
 var d = new Date();

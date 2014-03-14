@@ -1,3 +1,5 @@
-.right{
+footer nav{
     float:right;
+    font-family: verdana, sans-serif;
+    font-size: 1em;
 }

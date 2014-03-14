@@ -179,7 +179,7 @@ CONTENT
 }
 
 .user-icon {
-	top:170px; /* Positioning fix for slide-in, got lazy to think up of simpler method. */
+	top:170px; 
 	background: rgba(65,72,72,0.75) url(http://www.demo.amitjakhu.com/login-form/images/user-icon.png) no-repeat center;	
 }
 
@@ -193,7 +193,7 @@ CONTENT
 }
 
 /* Animation */
-.input, .user-icon, .pass-icon, .button, .register {
+.input, .user-icon, .pass-icon, .button {
 	transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-webkit-transition: all 0.5s ease;
