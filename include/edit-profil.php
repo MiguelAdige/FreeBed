@@ -63,7 +63,7 @@ if (isset($_POST['pseudo']) &&
 }
 
 ?>
-<a href="?p=mes-locations" class="button">Mes locations</a>
+<a href="?p=listing" class="button">Mes locations</a>
 <section class="edit-profil">
 
 	<h1>Modifier profil</h1>
