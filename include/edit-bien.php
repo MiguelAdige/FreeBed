@@ -46,7 +46,7 @@
 					':id_bien'		 => $_GET['id']			
 					));
 
-			echo '<p class="succes">Votre bien a été modifié, cliquez <a href="?p=fiche-bien&id=<?php echo $_GET['id']; ?>" style="color:yellow;">ici</a> pour le voir !</p>';
+			echo '<p class="succes">Votre bien a été modifié, cliquez <a href="?p=fiche-bien&id='.$_GET['id'].'" style="color:yellow;">ici</a> pour le voir !</p>';
 		}
 
 	}
