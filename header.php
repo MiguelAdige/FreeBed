@@ -30,7 +30,7 @@
 			}
 			else{
 			?>
-			<li><a href="?p=mes-locations">Mes Locations</a></li>
+			<li><a href="?p=ajout-bien">Ajouter un bien</a></li>
 			<li><a href="?p=edit-profil">Modifier mon profil</a></li>
 			<li><a href="?p=listing">Mes biens</a></li>
 			<li><a href="?p=logout">Déconnexion</a></li>
