@@ -63,7 +63,7 @@ $bien = $biens->fetch();
 			echo '<img src="'.$bien['url'].'" alt="photo du bien">';
 		}
 		else{
-			echo '<img src="upload/img/no-image.png" alt="pas de photo du bien">';
+			echo '<img src="img/no-image.png" alt="pas de photo du bien">';
 		}
 	?>
 	</div>
