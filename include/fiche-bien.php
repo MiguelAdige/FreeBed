@@ -37,7 +37,7 @@ if($ip_vues->rowCount() == 0){
 
 // Ont récupère le bien pour l'afficher
 // 
-$biens = $bdd->prepare("SELECT b.id,b.nom,b.type,b.surface,b.tarif_week,b.tarif_day,b.description,b.visites,a.adresse,a.cp,a.ville,a.pays,au.adresse adresse_user,au.cp cp_user,au.ville ville_user,au.pays pays_user,i.url,u.pseudo,u.nom nom_user,u.prenom FROM biens b
+$biens = $bdd->prepare("SELECT b.id,b.nom,b.type,b.surface,b.tarif_week,b.tarif_day,b.description,b.visites,a.adresse,a.cp,a.ville,a.pays,au.adresse adresse_user,au.cp cp_user,au.ville ville_user,au.pays pays_user,i.url,u.pseudo pseudo_user,u.nom nom_user,u.prenom FROM biens b
 					LEFT JOIN images i
 						ON b.id=i.biens_id
 					LEFT JOIN adresses a
@@ -52,6 +52,30 @@ $biens = $bdd->prepare("SELECT b.id,b.nom,b.type,b.surface,b.tarif_week,b.tarif_
 $biens->execute(array($_GET['id']));
 
 $bien = $biens->fetch();
+
+$comm = $bdd->query('SELECT a.commentaire, a.note note, u.pseudo pseudo
+						FROM avis a
+						JOIN users u
+							ON users_id = u.id');
+
+$moyenne = $bdd->query('SELECT ROUND(sum(note)/count(note)) note
+						FROM avis a
+						JOIN users u
+							ON users_id = u.id');
+
+if(isset($_POST['note']) && isset($_POST['avis'])){
+	if(!empty($_POST['note']) && !empty($_POST['avis'])){
+		$avis = $bdd->prepare('INSERT INTO avis(commentaire, note, biens_id, users_id)
+							VALUES(:commentaire, :note, :bien_id, :user_id)');
+
+		$avis->execute(array(
+		':commentaire'	=> $_POST['avis'],
+		':note'			=> $_POST['note'],
+		':bien_id'		=> $_GET['id'],
+		':user_id'		=> $_SESSION['user']['id']
+		));
+	}
+}
 ?>
 
 <article class="bien left">
@@ -71,8 +95,8 @@ $bien = $biens->fetch();
 		<div class="date-dispo">
 			<h3>Date de disponibilité(es)</h3>
 			<ul>
-				<li>Du 12/05/2014 au 25/05/2014</li>
-				<li>Du 29/05/2014 au 5/06/2014</li>
+				<li>Du 01/05/2014 au 28/05/2014</li>
+				<li>Du 29/05/2014 au 05/06/2014</li>
 			</ul>
 		</div>
 
@@ -87,71 +111,63 @@ $bien = $biens->fetch();
 
 		<div class="description">
 			<h3>Description</h3>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, sint, consequuntur tenetur rerum quos quasi excepturi nulla numquam alias aliquam ratione ullam nam perspiciatis fugiat praesentium impedit cumque? Hic, quas.
+			<?php echo $bien['description']; ?>
 		</div>
 
 		<div class="localite">
 			<h3>Localité</h3>
-			<p>Av 20 Novembre 1250 <br>
-			www.hotel-name.com</p>
+			<p>Adresse : <?php echo $bien['adresse']; ?> <br>
+			Ville : <?php echo $bien['ville']; ?><br/>
+			Pays : <?php echo $bien['pays']; ?>
+
+			</p>
 		</div>
 	</aside>
 
 	<div class="form-avis">
-		<h3>Laissez votre avis votre tour !</h3>
-		<form action="?p=fiche-bien&id=<?php echo $_GET['id'];?>">
+		<h3>Laissez-nous votre avis sur ce bien !</h3>
+		<form action="?p=fiche-bien&id=<?php echo $_GET['id'];?>" method="POST">
 			<label>Note</label>
-			1<input type="radio" name="note" value="1">
-			2<input type="radio" name="note" value="2">
-			3<input type="radio" name="note" value="3">
-			4<input type="radio" name="note" value="4">
-			5<input type="radio" name="note" value="5">
-			6<input type="radio" name="note" value="6">
-			7<input type="radio" name="note" value="7">
-			8<input type="radio" name="note" value="8">
-			9<input type="radio" name="note" value="9">
-			10<input type="radio" name="note" value="10">
+			1 <input type="radio" name="note" value="1">
+			2 <input type="radio" name="note" value="2">
+			3 <input type="radio" name="note" value="3">
+			4 <input type="radio" name="note" value="4">
+			5 <input type="radio" name="note" value="5">
+			6 <input type="radio" name="note" value="6">
+			7 <input type="radio" name="note" value="7">
+			8 <input type="radio" name="note" value="8">
+			9 <input type="radio" name="note" value="9">
+			10 <input type="radio" name="note" value="10">
 			<label for="avis">Votre avis</label>
 			<textarea name="avis" id="avis" cols="124" rows="5"></textarea>
 			<button type="submit">Envoyer</button>
 		</form>
 	</div>
 
+
+
+<?php while($donnees = $comm->fetch()){
+
+
+?>
 	<aside class="list-avis">
 		<div class="comment">
 	        <div class="message small-11 medium-11 large-11 left">
 	            <div class="author">
-	                <strong>Mixta</strong> <span class="first">1</span><span>/ 10</span>
+	                <strong><?php echo $donnees['pseudo']; ?></strong> <span class="first"><?php echo $donnees['note']; ?></span><span>/ 10</span>
 	            </div>
 	            <div class="content">
-	                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget interdum metus. Vivamus massa elit, vestibulum sed tortor eleifend, placerat condimentum lectus. Nulla vehicula vel magna non tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam placerat augue vitae mauris fringilla eleifend. Fusce vestibulum nulla ac leo tempor tincidunt. Fusce eu ligula et neque euismod posuere sit amet a mauris. Maecenas vestibulum, nisl at varius scelerisque, lectus est molestie magna, dapibus dignissim mi arcu non erat.
-	            </div>
-	        </div>
-	        <div class="clear"></div>
-	    </div>
-	    <div class="comment">
-	        <div class="message small-11 medium-11 large-11 left">
-	            <div class="author">
-	                <strong>Mixta</strong> <span class="first">1</span><span>/ 10</span>
-	            </div>
-	            <div class="content">
-	                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget interdum metus. Vivamus massa elit, vestibulum sed tortor eleifend, placerat condimentum lectus. Nulla vehicula vel magna non tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam placerat augue vitae mauris fringilla eleifend. Fusce vestibulum nulla ac leo tempor tincidunt. Fusce eu ligula et neque euismod posuere sit amet a mauris. Maecenas vestibulum, nisl at varius scelerisque, lectus est molestie magna, dapibus dignissim mi arcu non erat.
-	            </div>
-	        </div>
-	        <div class="clear"></div>
-	    </div>
-	    <div class="comment">
-	        <div class="message small-11 medium-11 large-11 left">
-	            <div class="author">
-	                <strong>Mixta</strong> <span class="first">1</span><span>/ 10</span>
-	            </div>
-	            <div class="content">
-	                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget interdum metus. Vivamus massa elit, vestibulum sed tortor eleifend, placerat condimentum lectus. Nulla vehicula vel magna non tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam placerat augue vitae mauris fringilla eleifend. Fusce vestibulum nulla ac leo tempor tincidunt. Fusce eu ligula et neque euismod posuere sit amet a mauris. Maecenas vestibulum, nisl at varius scelerisque, lectus est molestie magna, dapibus dignissim mi arcu non erat.
+	                <?php echo $donnees['commentaire']; ?>
 	            </div>
 	        </div>
 	        <div class="clear"></div>
 	    </div>
 	</aside>
+<?php 
+
+	}
+
+?>
 
 </article>
 <aside class="bien-aside left">
@@ -160,13 +176,16 @@ $bien = $biens->fetch();
 	</div>
 	
 	<div class="score">
-		<span>1</span><span>/ 10</span>
+		<?php
+		$note = $moyenne->fetch();
+		?>
+		<span><?php 
+					echo $note['note'];?></span><span>/ 10</span>
 	</div>
 
 	<div class="info-proprio">
 		<h3>Bailleur</h3>
-		Mixta <br>
-		Av 20 Novembre 1250, Santorini
+		<?php echo $bien['pseudo_user']; ?> <br>
 	</div>
 </aside>
 <div class="clear"></div>
