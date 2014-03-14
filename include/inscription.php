@@ -67,6 +67,7 @@ if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) &&
 }
 ?>
 <section class="inscription">
+	<h1>Inscription</h1>
 
 	<form method="POST" action="?p=inscription">
 		<fieldset>

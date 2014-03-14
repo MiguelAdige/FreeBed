@@ -205,7 +205,7 @@ CONTENT
 FOOTER
 *******************/
 
-.login-form .footer, .inscription form .footer {
+.login-form .footer, .inscription form .footer, .edit-profil form .footer {
 	padding: 25px 30px 40px 30px;
 	overflow: auto;
 	

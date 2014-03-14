@@ -102,6 +102,6 @@ if (isset($_POST['pseudo']) &&
 				}
 				?>
 			</select>
-		<button class="block" type="submit">Modifier</button>
+		<div class="footer"><button class="button right" type="submit">Modifier</button></div>
 	</form>
 </section>
