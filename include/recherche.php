@@ -171,7 +171,7 @@ if(isset($_GET['p']) && !empty($_GET['type']) ||
     {
         echo '<article class="item">
                 <figure>
-                    <a href="?p=fiche-bien&id="'.$donnees['b.id'].' title="'.$donnees['b.nom'].'">';
+                    <a href="?p=fiche-bien&id='.$donnees['b.id'].'" title="'.$donnees['b.nom'].'">';
                         if($donnees['i.url'] != null){
                             echo '<img src="'.$donnees['i.url'].'" alt="">';
                         }
@@ -196,3 +196,5 @@ if(isset($_GET['p']) && !empty($_GET['type']) ||
 }
 
 ?>
+
+<div class="clear"></div>
