@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `freebed`.`biens` (
   CONSTRAINT `fk_biens_adresse1`
     FOREIGN KEY (`adresse_id`)
     REFERENCES `freebed`.`adresses` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `freebed`.`date_disponibilites` (
   CONSTRAINT `fk_date_disponibilites_biens1`
     FOREIGN KEY (`biens_id`)
     REFERENCES `freebed`.`biens` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `freebed`.`ip_vues` (
   CONSTRAINT `fk_ip_vues_biens1`
     FOREIGN KEY (`biens_id`)
     REFERENCES `freebed`.`biens` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 

@@ -22,7 +22,6 @@
 					<tr>
 						<th>Nom</th>
 						<th>Etat</th>
-						<th>Activé/Désactivé le bien</th>
 						<th>Modifier</th>
 						<th>Supprimer</th>
 					</tr>';
@@ -30,11 +29,9 @@
 		//boucle qui affiche les biens de l'utilisateur
 		while($donnees = $requete->fetch()){
 			if($donnees['b.active'] == 1){
-				$visible = "Désactivé";
 				$etat = "Activé";
 			}
 			else {
-				$visible = "Activé";
 				$etat = "Désactivé";
 			}
 
@@ -43,7 +40,6 @@
 					<tr>
 						<td><a href="?p=fiche-bien&id='.$donnees['b.id'].'">'.$donnees['b.nom'].'</a></td>
 						<td>'.$etat.'</td>
-						<td><a href="?p=visible-bien&id='.$donnees['b.id'].'">'.$visible.'</a></td>
 						<td><a href="?p=edit-bien&id='.$donnees['b.id'].'">Modifier</a></td>
 						<td><a href="?p=delete-bien&id='.$donnees['b.id'].'">Supprimer</a></td>
 					</tr>
