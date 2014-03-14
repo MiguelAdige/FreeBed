@@ -11,6 +11,6 @@ document.write(d.getMonth() + 1);
 document.write(".");
 document.write(d.getFullYear());
 </script>
-	  .Tous droits réservés.
+	  Tropical .Tous droits réservés.
 </nav>	
 </footer>
