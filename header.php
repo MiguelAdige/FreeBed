@@ -20,7 +20,7 @@
 		<ul id="menu">
 			<li><a href="?p=accueil">Accueil</a></li>
 			<li><a href="?p=recherche">Recherche</a></li>
-			<li><a href="?p=contact">Contact</a></li>
+			<li><a href="?p=locations">Locations</a></li>
 			<?php 
 			if(!$security->logged()){
 			?>
@@ -30,6 +30,9 @@
 			}
 			else{
 			?>
+			<li><a href="?p=mes-locations">Mes Locations</a></li>
+			<li><a href="?p=edit-profil">Modifier mon profil</a></li>
+			<li><a href="?p=listing">Mes biens</a></li>
 			<li><a href="?p=logout">Déconnexion</a></li>
 			<?php
 			}
